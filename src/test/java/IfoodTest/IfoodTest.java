@@ -68,10 +68,10 @@ public class IfoodTest {
             dropdown.findElement(By.xpath("//option[. = 'Sim']")).click();
         }
 
-        // 14 | sleep | for 3 secs to check values
+        // 13 | sleep | for 3 secs to check values
         try{Thread.sleep(5000);}catch(InterruptedException ie){}
 
-        // 13 | click | css=.contact-form-submit |
+        // 14 | click | css=.contact-form-submit |
         driver.findElement(By.cssSelector(".contact-form-submit")).click();
 
 
