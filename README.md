@@ -1,4 +1,4 @@
-# BDD-Ifood-Java-Maven-Selenium
+# BDD Ifood
 
 Test E2E to make sure the registration is correctly done in Ifood Website.
 
