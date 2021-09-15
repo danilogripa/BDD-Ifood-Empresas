@@ -69,12 +69,12 @@ public class IfoodTest {
         }
 
         // 13 | sleep | for 3 secs to check values
-        try{Thread.sleep(5000);}catch(InterruptedException ie){}
+        //try{Thread.sleep(5000);}catch(InterruptedException ie){}
 
         // 14 | click | css=.contact-form-submit |
         driver.findElement(By.cssSelector(".contact-form-submit")).click();
 
-
+        // 15 | assert | check if the thank you page message show up |
         {
             List<WebElement> elements = driver.findElements(By.cssSelector(".contact-return-title"));
             assert(elements.size() > 0);
