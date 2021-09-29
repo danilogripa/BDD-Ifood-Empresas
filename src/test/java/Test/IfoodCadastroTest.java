@@ -1,10 +1,11 @@
 package Test;
 
 import Core.Driver;
+import Pages.IfoodCadastroPage;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class IfoodCadastroTest {
@@ -14,10 +15,14 @@ public class IfoodCadastroTest {
     WebDriver webDriver;    //Selenium Driver
     Driver driver;          //My driver
 
+    IfoodCadastroPage ifoodCadastroPage;
+
     @Before
     public void setUp() {
         driver = new Driver("chrome", websiteName);
         webDriver = driver.getDriver();
+        webDriver.get(websiteLink);
+        ifoodCadastroPage = new IfoodCadastroPage(webDriver);
     }
 
     @After
@@ -28,43 +33,23 @@ public class IfoodCadastroTest {
     @Test
     public void testDeCadastro() {
 
-        // 1 | open | Website |
-        webDriver.get(websiteLink);
+        // 1 | Fill the Registration Form |
+        ifoodCadastroPage.fillForm();
 
-        // 2 | type | Name |
-        webDriver.findElement(By.name("name")).sendKeys("Rogério Carvalho");
-
-        // 3 | type | Phone |
-        webDriver.findElement(By.name("tel")).sendKeys("21982536536");
-
-        // 4 | type | Email |
-        webDriver.findElement(By.name("email")).sendKeys("asdytcdiduf@gmail.com");
-
-        // 5 | type | Company Name |
-        webDriver.findElement(By.name("name-emp")).sendKeys("Auth Foods");
-
-        // 6 | type | N of Employees |
-        webDriver.findElement(By.name("employees")).sendKeys("25");
-
-        // 7 | type | CNPJ |
-        webDriver.findElement(By.name("cnpj")).sendKeys("27068131000167");
-
-        // 8 | Select DropDown Menu | is delivery? |
-        driver.selectDDMenu("delivery-option", "//option[. = 'Sim']");
-
-        // 9 | Print | Data |
+        // 2 | Print |
         driver.print("Dados");
 
-        // 10 | Click | Send |
-        webDriver.findElement(By.cssSelector(".contact-form-submit")).click();
+        // 3 | Send |
+        ifoodCadastroPage.sendForm();
 
-        // 11 | Wait 5 Secs | Page Update |
+        // 4 | Wait 5 Secs |
         driver.sleep5S();
 
-        // 12 | Assert | Thank You Page |
-        driver.assertFinalPage(".contact-return-title");
+        // 5 | Assert |
+        Assert.assertTrue(ifoodCadastroPage.getTYPMessage().size() > 0);
 
-        // 13 | Print | Thank You Page |
+        // 6 | Print Thank You Page |
         driver.print("Final");
     }
+
 }

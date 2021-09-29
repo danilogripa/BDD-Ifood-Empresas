@@ -2,7 +2,9 @@ package Core;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.*;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -12,7 +14,6 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 public class Driver {
     WebDriver driver;
@@ -60,7 +61,8 @@ public class Driver {
     public void sleep5S() {
         try{
             Thread.sleep(5000);
-        }catch(InterruptedException ie){}
+        }catch(InterruptedException ie){
+        }
     }
 
 
@@ -69,16 +71,4 @@ public class Driver {
         fileName = "./img - " + step + " - " + webSiteName + " - " + fileName;
         return fileName;
     }
-
-    //remover
-    public void assertFinalPage(String cssSelector){
-        List<WebElement> elements = driver.findElements(By.cssSelector(cssSelector));
-        assert(elements.size() > 0);
-    }
-
-    public void selectDDMenu(String id, String xpath){
-        WebElement dropdown = driver.findElement(By.id(id));
-        dropdown.findElement(By.xpath(xpath)).click();
-    }
-
 }
