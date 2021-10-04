@@ -22,7 +22,6 @@
             <version>3.141.59</version>
         </dependency>
 
-
         <!-- https://mvnrepository.com/artifact/junit/junit -->
         <dependency>
             <groupId>junit</groupId>
@@ -38,7 +37,6 @@
             <version>2.11.0</version>
         </dependency>
 
-
         <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
@@ -46,8 +44,12 @@
             <version>5.0.3</version>
         </dependency>
 
-
-
+        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>6.9.1</version>
+        </dependency>
 
     </dependencies>
 
